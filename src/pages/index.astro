@@ -1,16 +1,17 @@
 ---
-
+import PromptInput from '../components/PromptInput.jsx';
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>BuzzLaunch</title>
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+  <body class="bg-gray-100 min-h-screen p-8">
+    <div class="max-w-2xl mx-auto bg-white shadow p-6 rounded">
+      <h1 class="text-3xl font-bold mb-4">Create Your Storefront</h1>
+      <PromptInput client:load />
+    </div>
+  </body>
 </html>
