@@ -7,7 +7,6 @@ dotenv.config();
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react()],
+  integrations: [react(), vercel()],
   output: "server",
-  adapter: vercel(),
 });
