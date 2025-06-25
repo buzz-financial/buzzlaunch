@@ -21,6 +21,7 @@ const config = {
   ]
 };
 ---
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -32,15 +33,18 @@ const config = {
       <h1 class="text-3xl font-bold mb-6">{config.storeName}</h1>
 
       {config.sections.map((section) => (
-        section.type === 'hero' ? (
-          <HeroSection heading={section.heading} subheading={section.subheading} />
-        ) : section.type === 'products' ? (
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-            {section.products.map((product) => (
-              <ProductCard name={product.name} price={product.price} />
-            ))}
-          </div>
-        ) : null
+        <>
+          {section.type === 'hero' && (
+            <HeroSection heading={section.heading} subheading={section.subheading} />
+          )}
+          {section.type === 'products' && (
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+              {section.products.map((product) => (
+                <ProductCard name={product.name} price={product.price} />
+              ))}
+            </div>
+          )}
+        </>
       ))}
     </div>
   </body>
