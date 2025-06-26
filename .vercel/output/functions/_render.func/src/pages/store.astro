@@ -1,0 +1,51 @@
+---
+import HeroSection from '../components/HeroSection.jsx';
+import ProductCard from '../components/ProductCard.jsx';
+
+const config = {
+  storeName: "My Test Store",
+  sections: [
+    {
+      type: "hero",
+      heading: "Welcome to My Store",
+      subheading: "Handmade goods delivered to your door."
+    },
+    {
+      type: "products",
+      products: [
+        { name: "Sample Product 1", price: 19.99 },
+        { name: "Sample Product 2", price: 29.99 },
+        { name: "Sample Product 3", price: 39.99 }
+      ]
+    }
+  ]
+};
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{config.storeName}</title>
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+  <body class="bg-gray-100 min-h-screen p-8">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-3xl font-bold mb-6">{config.storeName}</h1>
+
+      {config.sections.map((section) => (
+        <>
+          {section.type === 'hero' && (
+            <HeroSection heading={section.heading} subheading={section.subheading} />
+          )}
+          {section.type === 'products' && (
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+              {section.products.map((product) => (
+                <ProductCard name={product.name} price={product.price} />
+              ))}
+            </div>
+          )}
+        </>
+      ))}
+    </div>
+  </body>
+</html>
